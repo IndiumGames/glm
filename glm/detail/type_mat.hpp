@@ -8,8 +8,10 @@
 namespace glm{
 namespace detail
 {
+#if !defined SWIG // Syntax error (template within template)
 	template <typename T, precision P, template <class, precision> class colType, template <class, precision> class rowType>
 	struct outerProduct_trait{};
+#endif //!defined SWIG
 }//namespace detail
 
 	template <typename T, precision P> struct tvec2;
