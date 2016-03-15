@@ -26,6 +26,7 @@ namespace glm
 
 		// -- Data --
 
+#if !defined SWIG // Warning 312: Nested union not currently supported (ignored).
 #		if GLM_HAS_ALIGNED_TYPE
 #			if GLM_COMPILER & GLM_COMPILER_GCC
 #				pragma GCC diagnostic push
@@ -74,6 +75,16 @@ namespace glm
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, tvec4, tvec2, tvec3, tvec4)
 #			endif//GLM_SWIZZLE
 #		endif
+#else //!defined SWIG
+T x, r, s;
+T y, g, t;
+T z, b, p;
+T w, a, q;
+
+#ifdef GLM_SWIZZLE
+GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, tvec4, tvec2, tvec3, tvec4)
+#endif//GLM_SWIZZLE
+#endif //!defined SWIG
 
 		// -- Component accesses --
 
