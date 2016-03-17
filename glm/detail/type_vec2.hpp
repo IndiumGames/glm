@@ -124,6 +124,12 @@ GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, tvec2, tvec2, tvec3, tvec4)
 		template <typename U, precision Q>
 		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tvec2(tvec2<U, Q> const & v);
 
+#if defined SWIG
+		//tvec2(tvec1<T, P> const & v1, tvec1<T, P> const & v2);
+		tvec2(tvec3<T, P> const & v);
+		tvec2(tvec4<T, P> const & v);
+#endif //defined SWIG
+
 		// -- Swizzle constructors --
 #		if GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE)
 			template <int E0, int E1>
