@@ -7,6 +7,7 @@
 #include "type_int.hpp"
 
 namespace glm{
+#if !defined SWIG // Warning 312: Nested union not currently supported (ignored).
 namespace detail
 {
 	template <typename T, std::size_t size, bool aligned>
@@ -92,6 +93,7 @@ namespace detail
 		};
 #	endif
 }//namespace detail
+#endif //!defined SWIG
 
 	template <typename T, precision P> struct tvec1;
 	template <typename T, precision P> struct tvec2;
