@@ -27,8 +27,10 @@ namespace detail
 	template <typename T, precision P> struct tmat4x3;
 	template <typename T, precision P> struct tmat4x4;
 
+#if !defined SWIG // Syntax error (template within template)
 	template <typename T, precision P, template <typename, precision> class matType>
 	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const & m);
+#endif //!defined SWIG
 
 	/// @addtogroup core_precision
 	/// @{
